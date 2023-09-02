@@ -12,7 +12,7 @@ set sw=2
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'tomlion/vim-solidity'
+"Plug 'tomlion/vim-solidity'
 Plug  'morhetz/gruvbox'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'scrooloose/nerdtree'
@@ -43,15 +43,21 @@ call plug#end()
 
 colorscheme gruvbox
 let g:gruvbox_contrast_dark = "hard"
-"let NERDTreeQuitOnOpen=1
+let NERDTreeQuitOnOpen=1
 
 inoremap ` <esc>
 vnoremap ` <esc>
 tnoremap ` <C-\><C-N>
 
 let mapleader=" "
-nmap <Leader>s <Plug>(easymotion-s2)
-noremap <leader>n :NERDTreeFind<CR>
+
+noremap <Leader>s :BLines<CR>
+noremap <Leader>f :BLines function<CR>
+noremap <leader>a :Ag<CR>
+noremap <C-\>f :Files
+
+nmap <Leader>e <Plug>(easymotion-s2)
+noremap <leader>t :NERDTreeFind<CR>
 
 autocmd BufRead,BufNewFile *.spec set filetype=spec
 
